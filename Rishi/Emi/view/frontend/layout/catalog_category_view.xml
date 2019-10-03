@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Category\View" name="category.products" template="Magento_Catalog::category/products.phtml">
+                <block class="Magento\Catalog\Block\Product\ListProduct" name="category.products.list" as="product_list" template="Magento_Catalog::product/list.phtml">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="category.product.addto" as="addto">
+						<block as="product_list_minemicalculator"  
+                            class="Rishi\Emi\Block\Product\Minemicalculator"
+                            name="product.list.minemicalculator" 
+                            template="Rishi_Emi::product/list/minemicalculator.phtml"/>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+	</body>
+</page>
+

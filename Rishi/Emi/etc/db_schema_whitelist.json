@@ -1,0 +1,17 @@
+{
+    "rishi_emi_calculator": {
+        "column": {
+            "calculator_id": true,
+            "bank_name": true,
+            "term_conditions": true,
+            "status": true,
+            "emi_tenure": true,
+            "interest_rate": true,
+            "created_at": true,
+            "modified_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

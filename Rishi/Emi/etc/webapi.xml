@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="POST" url="/V1/rishi-emi/calculator">
+		<service class="Rishi\Emi\Api\CalculatorRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Rishi_Emi::calculator_save"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/rishi-emi/calculator/search">
+		<service class="Rishi\Emi\Api\CalculatorRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Rishi_Emi::calculator_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/rishi-emi/calculator/:calculatorId">
+		<service class="Rishi\Emi\Api\CalculatorRepositoryInterface" method="getById"/>
+		<resources>
+			<resource ref="Rishi_Emi::calculator_view"/>
+		</resources>
+	</route>
+	<route method="PUT" url="/V1/rishi-emi/calculator/:calculatorId">
+		<service class="Rishi\Emi\Api\CalculatorRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Rishi_Emi::calculator_update"/>
+		</resources>
+	</route>
+	<route method="DELETE" url="/V1/rishi-emi/calculator/:calculatorId">
+		<service class="Rishi\Emi\Api\CalculatorRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Rishi_Emi::calculator_delete"/>
+		</resources>
+	</route>
+</routes>

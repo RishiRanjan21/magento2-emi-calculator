@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="rishi" sortOrder="100" translate="label">
+			<label>EMI Calculator</label>
+		</tab>
+		<section id="setting" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>EMI Setting</label>
+			<tab>rishi</tab>
+			<resource>Rishi_Emi::config_rishi_emi</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>General Setting</label>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enable</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="emi_text" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>EMI popup link text</label>
+					<comment/>
+				</field>
+				<field id="emi_heading" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>EMI popup heading</label>
+					<comment/>
+				</field>
+				<field id="minimum_amount" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="10" translate="label" type="text">
+					<label>Minimum Amount</label>
+					<comment>Minimum Amount required for EMI option</comment>
+				</field>
+				<field id="display_term_conditions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Display Term and Conditions</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

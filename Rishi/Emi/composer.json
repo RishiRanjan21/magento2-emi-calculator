@@ -1,0 +1,26 @@
+{
+    "name": "rishi/module-emi",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Rishi Ranjan",
+            "email": "rishi.ranjan@hkdigitalonline.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Rishi\\Emi\\": ""
+        }
+    }
+}

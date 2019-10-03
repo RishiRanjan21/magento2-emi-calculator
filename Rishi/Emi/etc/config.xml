@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<setting>
+			<general>
+				<enable/>
+				<emi_text>EMI options</emi_text>
+				<emi_heading>EMI Details</emi_heading>
+				<display_term_conditions/>
+				<minimum_amount>3000</minimum_amount>
+			</general>
+		</setting>
+	</default>
+</config>

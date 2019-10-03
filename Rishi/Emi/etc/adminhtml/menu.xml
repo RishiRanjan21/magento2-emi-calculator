@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Rishi::top_level" module="Rishi_Emi" resource="Magento_Backend::content" sortOrder="20" title="EMI"/>
+		<add action="rishi_emi/calculator/index" id="Rishi_Emi::rishi_emi_calculator" module="Rishi_Emi" parent="Rishi::top_level" resource="Magento_Backend::content" sortOrder="100" title="EMI Calculator"/>
+		<add action="adminhtml/system_config/edit/section/setting" id="Rishi_Emi::rishi_emi_calculator_setting" module="Rishi_Emi" parent="Rishi::top_level" resource="Magento_Backend::content" sortOrder="110" title="Setting"/>
+	</menu>
+</config>

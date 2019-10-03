@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="rishi_emi_calculator Table" engine="innodb" name="rishi_emi_calculator" resource="default">
+		<column comment="Entity Id" identity="true" name="calculator_id" nullable="false" padding="6" unsigned="false" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="calculator_id"/>
+		</constraint>
+		<column length="192" name="bank_name" nullable="false" xsi:type="varchar"/>
+		<column name="term_conditions" nullable="true" xsi:type="text"/>
+		<column length="256" name="status" nullable="false" xsi:type="varchar"/>
+		<column length="256" name="emi_tenure" nullable="true" xsi:type="varchar"/>
+		<column length="256" name="interest_rate" nullable="true" xsi:type="varchar"/>
+		<column name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" xsi:type="timestamp"/>
+		<column name="modified_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" xsi:type="timestamp"/>
+		
+	</table>
+</schema>

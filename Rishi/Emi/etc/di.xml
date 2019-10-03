@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Rishi\Emi\Api\CalculatorRepositoryInterface" type="Rishi\Emi\Model\CalculatorRepository"/>
+	<preference for="Rishi\Emi\Api\Data\CalculatorInterface" type="Rishi\Emi\Model\Data\Calculator"/>
+	<preference for="Rishi\Emi\Api\Data\CalculatorSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Rishi\Emi\Model\ResourceModel\Calculator\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">rishi_emi_calculator</argument>
+			<argument name="resourceModel" xsi:type="string">Rishi\Emi\Model\ResourceModel\Calculator\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="rishi_emi_calculator_listing_data_source" xsi:type="string">Rishi\Emi\Model\ResourceModel\Calculator\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

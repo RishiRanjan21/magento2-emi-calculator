@@ -1,0 +1,168 @@
+<?php
+/**
+ * @var $block \Rishi\Emi\Block\Product\Emicalculator
+ */
+?>
+<?= $block->Emicalculator() ?>
+<script>
+require([
+	'jquery'
+], function($) { 
+	$('.action_emi').on('click',function () {	
+			var price =  $(".price-wrapper").attr("data-price-amount");
+			$.ajax({
+				url: '<?php echo $this->getUrl('rishi/emi/calculate') ?>',
+				data: price,
+				processData: false,
+				contentType: false,
+				showLoader: true,
+				type: 'POST',
+				dataType: 'json',
+				success: function (response) {
+					console.log(response);
+					$(".pshav-validation").remove();
+					// dataFormMessage.html(response.msg).show();
+				}
+			});
+			
+			return false;
+	});
+});
+  </script>
+
+  
+<script>
+    require([
+	'jquery'
+], function($) { 
+
+	$('.emioptions').on('click',function () {	
+    $(".dropdown-content").show();
+  });
+
+  $('.emioptionsclose').on('click',function () {	
+    $(".dropdown-content").hide();
+  });
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+});
+  </script>
+  
+  <style>
+.dropbtn {
+  color: #444;
+  font-size: 14px;
+  border: none;
+  margin: 10px 0 0;
+  cursor:pointer;
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline;
+    /* width: 100%; */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  margin-top: 30px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 99;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  color:#009949 !important;
+}
+
+a.emioptions{
+  color:#009949 !important;
+}
+
+a.emioptions:hover{
+  text-decoration:underline;
+  color:#009949 !important;
+}
+/* .emioptions:hover .dropdown-content{display: block;z-index:99;} */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* .dropdown:hover .dropdown-content {display: block;z-index:99;} */
+
+.emi-tble{ margin:auto; border:#ddd solid 1px; padding:20px; border-radius:10px;z-index:99;  max-height: 1000px;overflow-y: auto;}
+.emi-tble span.emioptionsclose {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background: #009949;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.emi-tble h3{background: #ddd;
+    color: #000;
+    min-width: 350px;
+    padding: 10px 15px;
+    margin: 0 0 12px 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 14px;}
+.emi-tble .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 8px 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+.emi-tble .active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.emi-tble .accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.emi-tble .active:after {
+  content: "\2212";
+}
+
+.emi-tble .panel {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.emi-tble .panel table{font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px;}
+.emi-tble .panel table td{padding:5px; border:#ddd solid 1px;}
+.emi-tble .panel table td h4{ margin:0; background: #ddd;  padding: 5px; font-size: 14px;} 
+  </style>

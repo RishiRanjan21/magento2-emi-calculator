@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">rishi_emi_calculator_form.calculator_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button class="Rishi\Emi\Block\Adminhtml\Calculator\Edit\BackButton" name="back"/>
+			<button class="Rishi\Emi\Block\Adminhtml\Calculator\Edit\DeleteButton" name="delete"/>
+			<button class="Rishi\Emi\Block\Adminhtml\Calculator\Edit\SaveButton" name="save"/>
+			<button class="Rishi\Emi\Block\Adminhtml\Calculator\Edit\SaveAndContinueButton" name="save_and_continue"/>
+		</buttons>
+		<namespace>rishi_emi_calculator_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>rishi_emi_calculator_form.calculator_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="calculator_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider class="Rishi\Emi\Model\Calculator\DataProvider" name="calculator_form_data_source">
+			<settings>
+				<requestFieldName>calculator_id</requestFieldName>
+				<primaryFieldName>calculator_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label translate="true">EMI Options</label>
+		</settings>
+		<field formElement="select" name="status" sortOrder="05">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Enabledisable</item>
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">calculator</item>
+					<item name="filter" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Status</label>
+				<dataScope>status</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="bank_name" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">calculator</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Bank Name</label>
+				<dataScope>bank_name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="wysiwyg" name="term_conditions" sortOrder="20" template="ui/content/content">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">calculator</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Term &amp; Comditions</label>
+				<dataScope>term_conditions</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+			<formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+		</field>
+		<!-- <field formElement="input" name="emi_tenure" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">calculator</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">EMI Tenure(Month)</label>
+				<dataScope>emi_tenure</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="interest_rate" sortOrder="70">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">calculator</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Interest Rate(%)</label>
+				<dataScope>interest_rate</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field> -->
+
+		<container name="emi_options">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/dynamic-rows/dynamic-rows</item>
+					<item name="template" xsi:type="string">ui/dynamic-rows/templates/default</item>
+					<item name="componentType" xsi:type="string">dynamicRows</item>
+					<item name="recordTemplate" xsi:type="string">record</item>
+					<item name="addButtonLabel" xsi:type="string">Add Row</item>
+					<item name="deleteProperty" xsi:type="boolean">false</item>
+				</item>
+			</argument>
+			<container name="record">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="label" xsi:type="string" translate="true">Dynamic Rows</item>
+						<item name="component" xsi:type="string" translate="true">Magento_Ui/js/dynamic-rows/record
+						</item>
+						<item name="isTemplate" xsi:type="boolean">true</item>
+						<item name="is_collection" xsi:type="boolean">true</item>
+						<item name="showFallbackReset" xsi:type="boolean">false</item>
+					</item>
+				</argument>
+
+				<field name="emi_tenure">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="dataType" xsi:type="string">text</item>
+							<item name="label" xsi:type="string" translate="true">EMI Tenure(Month)</item>
+							<item name="formElement" xsi:type="string">input</item>
+							<item name="dataScope" xsi:type="string">emi_tenure</item>
+							<item name="showFallbackReset" xsi:type="boolean">false</item>
+							<item name="validation" xsi:type="array">
+								<item name="required-entry" xsi:type="boolean">true</item>
+							</item>
+							<item name="sortOrder" xsi:type="string">10</item>
+						</item>
+					</argument>
+				</field>
+				<field name="interest_rate">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="dataType" xsi:type="string">text</item>
+							<item name="formElement" xsi:type="string">input</item>
+							<item name="label" xsi:type="string" translate="true">Interest Rate(%)</item>
+							<item name="dataScope" xsi:type="string">interest_rate</item>
+							<item name="disabled" xsi:type="boolean">false</item>
+							<item name="validation" xsi:type="array">
+								<item name="required-entry" xsi:type="boolean">true</item>
+							</item>
+							<item name="sortOrder" xsi:type="string">30</item>
+						</item>
+					</argument>
+				</field>
+				<actionDelete>
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="componentType" xsi:type="string">actionDelete</item>
+							<item name="dataType" xsi:type="string">text</item>
+							<item name="fit" xsi:type="boolean">false</item>
+							<item name="label" xsi:type="string">Actions</item>
+							<item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
+							<item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete
+							</item>
+						</item>
+					</argument>
+				</actionDelete>
+			</container>
+		</container>
+
+		</fieldset>
+</form>
