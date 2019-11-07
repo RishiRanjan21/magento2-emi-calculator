@@ -2,6 +2,10 @@
 
 This module add "EMI Option" button on product view page and list page to check EMI price and interest rate for each bank.
 
+Please donate if you enjoy my extension.
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/RishiRanjan)
+
 # Installation Instruction
 
 * Copy the content of the repo to the <b>app/code/Rishi/Emi/</b> folder
